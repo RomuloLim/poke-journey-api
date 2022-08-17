@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PokemonContoller;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Route;
@@ -24,3 +26,6 @@ Route::get('/', function(){
 
     return $poke['sprites'];
 });
+
+Route::get('/pokemon/hunt', [PokemonContoller::class, 'huntPokemon']);
+Route::post('/user/save-settings', [UserController::class, 'saveSettings']);
