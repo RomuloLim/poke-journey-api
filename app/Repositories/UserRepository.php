@@ -15,6 +15,13 @@ class UserRepository
         $this->entity = new User();
     }
 
+    public function store(array $data): User
+    {
+        return $this->entity->create($data);
+    }
+
+
+    //not working :(
     public function saveSettings($request)
     {
         $userSettings = $this->entity->find($request['user_id'])->settings();

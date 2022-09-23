@@ -8,6 +8,7 @@ class PokeUserService
 {
     protected $pokeApi;
     protected $pokeUser = 10;
+
     public function __construct()
     {
         $this->pokeApi = Http::baseUrl('https://pokeapi.co/api/v2/');

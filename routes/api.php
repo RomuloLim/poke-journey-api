@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PokemonContoller;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -26,6 +27,10 @@ Route::get('/', function(){
 
     return $poke['sprites'];
 });
+
+Route::post('/login', [AuthController::class, 'auth']);
+
+Route::post('/user/create', [UserController::class, 'store']);
 
 Route::get('/pokemon/hunt', [PokemonContoller::class, 'huntPokemon']);
 Route::post('/user/save-settings', [UserController::class, 'saveSettings']);

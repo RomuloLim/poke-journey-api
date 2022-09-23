@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UserSettingsRequest;
 use App\Repositories\UserRepository;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -11,6 +12,13 @@ class UserController extends Controller
     public function __construct()
     {
         $this->repository = new UserRepository();
+    }
+
+    public function store(Request $request)
+    {
+        $data = $request->all();
+
+        return $this->repository->store($data);
     }
 
     public function saveSettings(UserSettingsRequest $request)
